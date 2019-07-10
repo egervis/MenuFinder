@@ -1,7 +1,9 @@
 package com.example.menufinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -115,12 +117,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull PlacesAdapter.PlaceHolder myViewHolder, int i) {
+        public void onBindViewHolder(@NonNull PlacesAdapter.PlaceHolder myViewHolder, final int i) {
             try {
                 String name = this.places.getJSONObject(i).getString("name");
                 String address = this.places.getJSONObject(i).getString("formatted_address");
                 myViewHolder.name.setText(name);
                 myViewHolder.address.setText(address);
+                myViewHolder.layout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), PlaceActivity.class);
+                        intent.putExtra("id", placeIds.get(i));System.out.println(i);
+                        startActivity(intent);
+                    }
+                });
             } catch (Exception e)
             {
                 System.out.println(e);
@@ -135,10 +145,12 @@ public class MainActivity extends AppCompatActivity {
         public class PlaceHolder extends RecyclerView.ViewHolder {
             private TextView name;
             private TextView address;
+            private ConstraintLayout layout;
             public PlaceHolder(@NonNull View itemView) {
                 super(itemView);
                 this.name = itemView.findViewById(R.id.name);
                 this.address = itemView.findViewById(R.id.address);
+                this.layout = itemView.findViewById(R.id.holderPlaces);
             }
         }
     }
