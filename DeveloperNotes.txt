@@ -1,0 +1,6 @@
+Google Places:
+Using an array of Place.Fields, you can limit the response to only those fields specified. 
+Fields in the Basic category are included in the base cost of the Places request, and do 
+not result in any additional charge. The Basic Data SKU is triggered when any of these 
+fields are requested: ADDRESS, ID, LAT_LNG, NAME, OPENING_HOURS, PHOTO_METADATAS, PLUS_CODE, 
+TYPES, VIEWPORT.

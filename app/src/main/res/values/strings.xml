@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Menu Finder</string>
+    <string name="action_settings">Settings</string>
+    <string name="location">Location</string>
+    <string name="name">Name</string>
+    <string name="search">Search</string>
+</resources>
