@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                             JSONArray arr = response.getJSONArray("results");
                             for(int i=0; i<arr.length(); i++)
                             {
-                                placeIds.add(arr.getJSONObject(i).getString("id"));
+                                placeIds.add(arr.getJSONObject(i).getString("place_id"));
                             }
                             adapter = new PlacesAdapter(arr);
                             recyclerView.setAdapter(adapter);
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), PlaceActivity.class);
-                        intent.putExtra("id", placeIds.get(i));System.out.println(i);
+                        intent.putExtra("id", placeIds.get(i));System.out.println(placeIds.get(i));
                         startActivity(intent);
                     }
                 });
