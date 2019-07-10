@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getApplicationContext(), PlaceActivity.class);
-                        intent.putExtra("id", placeIds.get(i));System.out.println(placeIds.get(i));
+                        intent.putExtra("id", placeIds.get(i));
                         startActivity(intent);
                     }
                 });
