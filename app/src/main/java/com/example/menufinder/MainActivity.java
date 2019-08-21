@@ -37,7 +37,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String apiKey = "AIzaSyBPrlmxlXsYd48uQbJUd5IofiJBdoxr-Xo";
+    public static final String apiKey = "";
     private static List<String> placeIds;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;

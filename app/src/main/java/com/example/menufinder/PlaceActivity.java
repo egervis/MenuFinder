@@ -56,7 +56,7 @@ public class PlaceActivity extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://maps.googleapis.com/maps/api/place/details/" +
-                "json?placeid=" + id + "&fields=name,formatted_address,photo" + "&key=" + apiKey;
+                "json?placeid=" + id + "&fields=name,formatted_address,photo" + "&key=" + apiKey;System.out.println(url);
 
         JsonObjectRequest placesRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -117,12 +117,18 @@ public class PlaceActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ImageAdapter.ImageHolder myViewHolder, final int i) {
+        public void onBindViewHolder(@NonNull final ImageAdapter.ImageHolder myViewHolder, final int i) {
             try {
                 String url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=700&photoreference=" +
                         this.images.get(i)+ "&key=" + apiKey;System.out.println(url);
 
                 Picasso.get().load(url).into(myViewHolder.image);
+                myViewHolder.image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //myViewHolder.image.
+                    }
+                });
             } catch (Exception e)
             {
                 System.out.println(e);
